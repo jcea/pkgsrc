@@ -2,7 +2,7 @@ $NetBSD$
 
 Disable -fomit-frame-pointer.
 
---- gcc/ira.c.orig	2015-06-12 11:54:43.000000000 +0000
+--- gcc/ira.c.orig	2016-03-31 13:21:43.000000000 +0000
 +++ gcc/ira.c
 @@ -1707,7 +1707,7 @@ ira_init (void)
  {
@@ -20,5 +20,5 @@ Disable -fomit-frame-pointer.
 -    = (! flag_omit_frame_pointer
 +    = (! 0
         || (cfun->calls_alloca && EXIT_IGNORE_STACK)
-        /* We need the frame pointer to catch stack overflow exceptions
- 	  if the stack pointer is moving.  */
+        /* We need the frame pointer to catch stack overflow exceptions if
+ 	  the stack pointer is moving (as for the alloca case just above).  */
