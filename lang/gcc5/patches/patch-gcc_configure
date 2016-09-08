@@ -1,13 +1,23 @@
 $NetBSD: patch-gcc_configure,v 1.3 2015/11/17 11:21:15 wiz Exp $
 
+Fix detection of native TLS on SunOS, joyent/pkgsrc#264
 First chunk: SSP is in libc on NetBSD
 https://gcc.gnu.org/bugzilla/show_bug.cgi?id=68380
 
 Second chunk: XXX
 
---- gcc/configure.orig	2015-07-03 17:00:49.000000000 +0000
+--- gcc/configure.orig	2016-05-21 08:35:25.000000000 +0000
 +++ gcc/configure
-@@ -27775,7 +27775,7 @@ fi
+@@ -23549,7 +23549,7 @@ $as_echo "#define TLS_SECTION_ASM_FLAG '
+       tls_first_major=2
+       tls_first_minor=14
+       tls_section_flag=T
+-      tls_as_opt="--fatal-warnings"
++      tls_as_opt="-32 --fatal-warnings"
+     fi
+     case "$target" in
+       i[34567]86-*-*)
+@@ -27866,7 +27866,7 @@ fi
  	 # simply assert that glibc does provide this, which is true for all
  	 # realistically usable GNU/Hurd configurations.
  	 gcc_cv_libc_provides_ssp=yes;;
@@ -16,7 +26,7 @@ Second chunk: XXX
  	 ac_fn_c_check_func "$LINENO" "__stack_chk_fail" "ac_cv_func___stack_chk_fail"
  if test "x$ac_cv_func___stack_chk_fail" = x""yes; then :
    gcc_cv_libc_provides_ssp=yes
-@@ -27870,6 +27870,13 @@ case "$target" in
+@@ -27961,6 +27961,13 @@ case "$target" in
        gcc_cv_target_dl_iterate_phdr=no
      fi
      ;;

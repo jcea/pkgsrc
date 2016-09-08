@@ -40,6 +40,9 @@ CONFIGURE_ARGS+=	--disable-libstdcxx-pch
 UNLIMIT_RESOURCES+=	datasize
 UNLIMIT_RESOURCES+=	stacksize
 
+FILES_SUBST+=		GCC5_DIST_VERSION=${GCC5_DIST_VERSION}
+FILES_SUBST+=		MACHINE_GNU_PLATFORM=${MACHINE_GNU_PLATFORM}
+
 SUBST_CLASSES+=		vars
 SUBST_MESSAGE.vars=	Setting target machine name path in ${SUBST_FILES.vars}
 SUBST_STAGE.vars=	pre-configure
