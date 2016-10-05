@@ -161,9 +161,9 @@ ${_var_}:=	${${_var_}:C/^/_asdf_/1:M_asdf_*:S/^_asdf_//:T} ${${_var_}:C/^/_asdf_
 _WRAP_EXTRA_ARGS.CC+=	${_COMPILER_ABI_FLAG.${ABI}}
 _WRAP_EXTRA_ARGS.CXX+=	${_COMPILER_ABI_FLAG.${ABI}}
 _WRAP_EXTRA_ARGS.FC+=	${_COMPILER_ABI_FLAG.${ABI}}
-CWRAPPERS_APPEND.cc+=	${_COMPILER_ABI_FLAG.${ABI}}
-CWRAPPERS_APPEND.cxx+=	${_COMPILER_ABI_FLAG.${ABI}}
-CWRAPPERS_APPEND.f77+=	${_COMPILER_ABI_FLAG.${ABI}}
+CWRAPPERS_PREPEND.cc+=	${_COMPILER_ABI_FLAG.${ABI}}
+CWRAPPERS_PREPEND.cxx+=	${_COMPILER_ABI_FLAG.${ABI}}
+CWRAPPERS_PREPEND.f77+=	${_COMPILER_ABI_FLAG.${ABI}}
 .endif
 
 # If the languages are not requested, force them not to be available
