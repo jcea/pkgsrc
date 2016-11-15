@@ -114,8 +114,9 @@ echo "Uploading report..."
 		PATH=$MANTA_PATH:$PATH
 		# Output directory only needs to not exist or be empty.
 		tmpdir="/var/tmp/pbulk-rsync-$$"
-		mtarfile="/${MANTA_USER}/stor/${report_subject_prefix}-${build_start_dir}.tar.gz"
 		mdir="${report_manta_target}/${build_start_dir}"
+		mtarfile="${report_manta_target}/${report_subject_prefix}-${build_start_dir}.tar.gz"
+		mmkdir -p "${report_manta_target}"
 		${rsync} -rn --exclude-from=- --out-format='%n' . ${tmpdir} \
 		    | grep -v '/$' | @TAR@ -cz -T - 2>/dev/null \
 		    | mput -q ${mtarfile}
