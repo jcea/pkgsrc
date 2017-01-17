@@ -120,6 +120,8 @@ main(int argc, char **argv)
 
 	arglist_from_argc(&args, argc, argv);
 
+	arglist_register_globals(&args);
+
 	fp = worklog_open();
 	worklog_cmd(fp, "[*]", wrapper_name, &args); 
 
@@ -129,6 +131,11 @@ main(int argc, char **argv)
 #endif
 
 	arglist_apply_config(&args);
+#if defined(WRAPPER_LD)
+	ldadd_ld(&args);
+#elif defined(WRAPPER_CC) || defined(WRAPPER_CXX)
+	ldadd_cc(&args);
+#endif
 #if defined(WRAPPER_LD)
 	normalise_ld(&args);
 #else
