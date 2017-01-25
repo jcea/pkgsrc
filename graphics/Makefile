@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.755 2017/01/05 08:11:34 wiz Exp $
+# $NetBSD: Makefile,v 1.758 2017/01/22 10:33:20 wiz Exp $
 #
 
 COMMENT=	Graphics tools and libraries
@@ -223,6 +223,7 @@ SUBDIR+=	gtkam
 SUBDIR+=	gtkglext
 SUBDIR+=	gtkimageview
 SUBDIR+=	gtksee
+SUBDIR+=	guetzli
 SUBDIR+=	guile-cairo
 SUBDIR+=	gwenview
 SUBDIR+=	gwenview-i18n-kde3
@@ -537,6 +538,8 @@ SUBDIR+=	tex-dviincl-doc
 SUBDIR+=	tex-dvipng-doc
 SUBDIR+=	tex-eepic
 SUBDIR+=	tex-eepic-doc
+SUBDIR+=	tex-ellipse
+SUBDIR+=	tex-ellipse-doc
 SUBDIR+=	tex-emp
 SUBDIR+=	tex-emp-doc
 SUBDIR+=	tex-epsincl
@@ -561,6 +564,8 @@ SUBDIR+=	tex-graphics-pln
 SUBDIR+=	tex-graphics-pln-doc
 SUBDIR+=	tex-hatching
 SUBDIR+=	tex-hatching-doc
+SUBDIR+=	tex-incgraph
+SUBDIR+=	tex-incgraph-doc
 SUBDIR+=	tex-latexmp
 SUBDIR+=	tex-latexmp-doc
 SUBDIR+=	tex-mcf2graph
@@ -581,6 +586,8 @@ SUBDIR+=	tex-mfpic4ode
 SUBDIR+=	tex-mfpic4ode-doc
 SUBDIR+=	tex-mp3d
 SUBDIR+=	tex-mp3d-doc
+SUBDIR+=	tex-mparrows
+SUBDIR+=	tex-mparrows-doc
 SUBDIR+=	tex-mpattern
 SUBDIR+=	tex-mpattern-doc
 SUBDIR+=	tex-mpcolornames

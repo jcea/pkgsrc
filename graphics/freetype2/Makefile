@@ -1,11 +1,10 @@
-# $NetBSD: Makefile,v 1.108 2016/10/30 17:07:12 wiz Exp $
+# $NetBSD: Makefile,v 1.110 2017/01/19 18:52:11 agc Exp $
 
-DISTNAME=	freetype-2.7
+DISTNAME=	freetype-2.7.1
 PKGNAME=	${DISTNAME:S/-/2-/}
-PKGREVISION=	1
 CATEGORIES=	graphics
-MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=freetype/} \
-		http://download.savannah.gnu.org/releases/freetype/
+MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=freetype/}
+MASTER_SITES+=	http://download.savannah.gnu.org/releases/freetype/
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
