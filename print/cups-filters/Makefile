@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.61 2016/12/30 16:14:32 adam Exp $
+# $NetBSD: Makefile,v 1.63 2017/01/21 11:58:29 leot Exp $
 
-DISTNAME=	cups-filters-1.13.2
+DISTNAME=	cups-filters-1.13.3
 CATEGORIES=	print
 MASTER_SITES=	http://openprinting.org/download/cups-filters/
 EXTRACT_SUFX=	.tar.xz
@@ -42,7 +42,9 @@ CONFIGURE_ARGS+=	--with-rclevels=""
 .endif
 CONFIGURE_ARGS+=	--disable-ldap
 CONFIGURE_ARGS+=	--disable-mutool
+CONFIGURE_ARGS+=	--with-apple-raster-filter=rastertopdf
 CONFIGURE_ARGS+=	--with-shell=${TOOLS_PATH.bash}
+CONFIGURE_ARGS+=	--with-pdftops-path=${PREFIX}/bin/pdftops
 
 INSTALL_MAKE_FLAGS+=	sysconfdir=${PREFIX}/share/examples/cups-filters
 
@@ -50,7 +52,7 @@ CONF_FILES=		${PREFIX}/share/examples/cups-filters/fonts/conf.d/99pdftoopvp.conf
 CONF_FILES+=		${PREFIX}/share/examples/cups-filters/cups-browsed.conf ${PKG_SYSCONFDIR}/cups/cups-browsed.conf
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/etc/cups/cups-browsed.conf ${DESTDIR}${PREFIX}/share/examples/cups-filters/cups-browsed.conf
+	${MV} ${DESTDIR}${PKG_SYSCONFDIR}/cups/cups-browsed.conf ${DESTDIR}${PREFIX}/share/examples/cups-filters/cups-browsed.conf
 	# backends that need root access should not have world read and execute permissions
 	${CHMOD} go-rwx ${DESTDIR}${PREFIX}/libexec/cups/backend/parallel
 	${CHMOD} go-rwx ${DESTDIR}${PREFIX}/libexec/cups/backend/serial
