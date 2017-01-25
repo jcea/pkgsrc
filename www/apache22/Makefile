@@ -1,12 +1,11 @@
-# $NetBSD: Makefile,v 1.110 2016/07/29 11:10:24 wiz Exp $
+# $NetBSD: Makefile,v 1.112 2017/01/19 18:52:28 agc Exp $
 
-DISTNAME=	httpd-2.2.31
+DISTNAME=	httpd-2.2.32
 PKGNAME=	${DISTNAME:S/httpd/apache/}
-PKGREVISION=	4
 CATEGORIES=	www
-MASTER_SITES=	${MASTER_SITE_APACHE:=httpd/} \
-		http://archive.apache.org/dist/httpd/ \
-		http://archive.eu.apache.org/dist/httpd/
+MASTER_SITES=	${MASTER_SITE_APACHE:=httpd/}
+MASTER_SITES+=	http://archive.apache.org/dist/httpd/
+MASTER_SITES+=	http://archive.eu.apache.org/dist/httpd/
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
