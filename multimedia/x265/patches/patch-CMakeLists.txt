@@ -1,0 +1,18 @@
+$NetBSD$
+
+Solaris ld only: Provided assembler code is not PIC, so we use "-mimpure-text".
+Solaris ld only: With "-Wa,--noexecstack" we insruct the compiler to generate
+                 the appropiate ELF annotations, but I (jcea@jcea.es) don't know
+                 if Solaris uses that information or just ignore it.
+
+--- CMakeLists.txt.OLD	2017-01-27 02:31:39.520834269 +0000
++++ CMakeLists.txt	2017-01-27 02:32:42.341534941 +0000
+@@ -523,7 +523,7 @@
+         elseif(CYGWIN)
+             # Cygwin is not officially supported or tested. MinGW with msys is recommended.
+         else()
+-            list(APPEND LINKER_OPTIONS "-Wl,-Bsymbolic,-znoexecstack")
++            list(APPEND LINKER_OPTIONS "-mimpure-text -Wa,--noexecstack")
+         endif()
+     endif()
+     set_target_properties(x265-shared PROPERTIES SOVERSION ${X265_BUILD})
